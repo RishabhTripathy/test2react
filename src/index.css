@@ -66,7 +66,22 @@ code {
   opacity: 0.5;
   /* filter: blur(5px); */
 }
+.range-input::-moz-range-thumb {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: white;
+  cursor: pointer;
+}
 
+/* Styles for Internet Explorer/Edge */
+.range-input::-ms-thumb {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: white;
+  cursor: pointer;
+}
 
 .section-content {
   text-align: center;
