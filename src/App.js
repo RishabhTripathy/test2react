@@ -1,7 +1,6 @@
 import "./App.css";
 import Nav from "./components/nav";
 import FullPage from "./components/fullpage";
-
 function App() {
   const projects = [
     {
@@ -41,8 +40,9 @@ function App() {
     }
   ];
   return (
-    <div className="App">
+    <div className="App bg-white">
       <header>
+
       <link
           rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/4.0.9/fullpage.min.css"
