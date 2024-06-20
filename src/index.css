@@ -50,21 +50,24 @@ code {
   display: none !important;
 }
 
-
-
-
 .section {
-
-  transition: opacity 0.5s ease-in-out; 
-  opacity: 1; 
-  background-color: #121212; 
-  color: white; 
+  transition: opacity 0.5s ease-in-out;
+  opacity: 1;
+  background-color: #121212;
+  color: white;
 }
-
 
 .fade-out {
   opacity: 0.5;
   /* filter: blur(5px); */
+}
+
+.section-content {
+  text-align: center;
+
+  background: rgba(0, 0, 0, 0.8);
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
 }
 .range-input::-moz-range-thumb {
   width: 10px;
@@ -83,10 +86,14 @@ code {
   cursor: pointer;
 }
 
-.section-content {
-  text-align: center;
+.transition-transform {
+  transition: transform 0.3s ease-in-out;
+}
 
-  background: rgba(0, 0, 0, 0.8); 
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); 
+.translate-x-full {
+  transform: translateX(100%);
+}
+
+.translate-x-0 {
+  transform: translateX(0);
 }
