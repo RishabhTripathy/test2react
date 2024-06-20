@@ -37,7 +37,7 @@ export default function Nav() {
 
   return (
     <>
-      <div className="navbar fixed z-50 lg:px-8 text-white top-0">
+      <div className="navbar bg-black md:bg-transparent fixed z-50 lg:px-8 text-white top-0">
         <div className="navbar-start">
           <div className="dropdown">
             <div tabIndex={0} role="button" className="text-3xl lg:hidden">
@@ -60,14 +60,14 @@ export default function Nav() {
               ))}
             </ul>
           </div>
-          <a href="/" className="">
+          <a href="/" className=" ">
             <img
               src={logo}
               priority
               alt=""
               width={300}
               height={300}
-              className="w-[12rem]"
+              className="w-[6rem] md:w-[12rem]"
             />
           </a>
         </div>
