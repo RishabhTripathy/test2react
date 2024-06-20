@@ -1,10 +1,37 @@
+import React, { useEffect, useState } from "react";
 import "./App.css";
 import Nav from "./components/nav";
 import FullPage from "./components/fullpage";
+import MobileView from "./components/mobile";
+
 function App() {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+
+    // Set initial state
+    handleResize();
+
+    // Add event listener for window resize
+    window.addEventListener("resize", handleResize);
+
+    // Clean up event listener
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   const projects = [
     {
       id: 1,
+      title: "Lord Voldemort | Arijit Singh | hehehe | Kuch bhii ",
+      description:
+        "This is a story on the border between reality and imaginary, about the contradictory feelings that the insularity of a rocky, arid, and wild territory provokes”—so French photographer Clément Chapillon describes his latest highly captivating project Les rochers fauves (French for ‘The tawny rocks’).",
+      link: "https://videos.pexels.com/video-files/4231734/4231734-hd_1280_720_24fps.mp4"
+    },
+    {
+      id: 2,
       title: "Matthias Leidinger | Arijit Singh | hehehe ",
       description:
         "Originally hailing from Austria, Berlin-based photographer Matthias Leindinger is a young creative brimming with talent and ideas.",
@@ -39,21 +66,20 @@ function App() {
       link: "https://videos.pexels.com/video-files/4631982/4631982-hd_1366_720_50fps.mp4"
     }
   ];
-  return (
-    <div className="App bg-white">
-      <header>
 
-      <link
+  return (
+    <div className="App bg-white overflow-hidden">
+      <header>
+        <link
           rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/4.0.9/fullpage.min.css"
           integrity="sha512-AIwt5sjXSKDo4t0KSQ/eAuy43kQMc1hYtIKLxaFrHd26nQFzMo1FJdBIickVyGXnhm2xB2OOYBqMBgu3dBU4KA=="
-          crossorigin="anonymous"
-          referrerpolicy="no-referrer"
+          crossOrigin="anonymous"
+          referrerPolicy="no-referrer"
         />
       </header>
       <Nav />
-
-      <FullPage projects={projects} />
+      {isMobile ? <MobileView projects={projects} /> : <FullPage projects={projects} />}
     </div>
   );
 }
