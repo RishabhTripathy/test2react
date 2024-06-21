@@ -26,15 +26,14 @@ export default function Nav() {
     }
   ];
 
-  // Determine the active nav item based on the current path
+
   const activeNavItem = navItems.find(item => item.link === location.pathname)?.name;
 
   const handleNavItemClick = (name) => {
     if (name === "Connect") {
       setDrawerOpen(true);
-    } else {
-      setDrawerOpen(false); // Close the drawer if any other nav item is clicked
-    }
+    } else 
+      setDrawerOpen(false); 
   };
 
   return (
@@ -78,9 +77,9 @@ export default function Nav() {
             {navItems.map((item) => (
               <li key={item.id} className="py-0">
                 <Link
-                  className={`rounded-full hover:bg-transparent py-1 px-3 group ${
+                  className={`rounded-full hover:bg-transparent duration-200 py-1 px-3 group ${
                     activeNavItem === item.name
-                      ? "bg-transparent outline-white outline-1 outline"
+                      ? "bg-transparent outline-white transition-all duration-200 outline-1 outline"
                       : ""
                   }`}
                   to={item.link}
@@ -89,7 +88,7 @@ export default function Nav() {
                   <MdFiberManualRecord
                     className={
                       activeNavItem === item.name
-                        ? "text-red-500 group-hover:text-white text-xl"
+                        ? "text-red-500 group-hover:text-white duration-200 text-xl"
                         : "text-transparent"
                     }
                   />
