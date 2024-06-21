@@ -38,7 +38,7 @@ export default function Nav() {
 
   return (
     <>
-      <div className="navbar bg-black md:bg-transparent fixed z-50 lg:px-8 text-white top-0">
+      <div className="navbar  bg-black md:bg-transparent fixed z-50 lg:px-8 text-white top-0">
         <div className="navbar-start">
           <div className="dropdown">
             <div tabIndex={0} role="button" className="text-3xl lg:hidden">
@@ -72,12 +72,12 @@ export default function Nav() {
             />
           </Link>
         </div>
-        <div className="navbar-end hidden justify-around lg:flex">
-          <ul className="menu uppercase font-extralight tracking-widest menu-horizontal px-1">
+        <div className="navbar-end hidden  lg:flex">
+          <ul className=" uppercase font-extralight   grid grid-cols-3  tracking-widest space-x-2">
             {navItems.map((item) => (
-              <li key={item.id} className="py-0">
+              <li key={item.id} className="py-0 basis-1" >
                 <Link
-                  className={`rounded-full hover:bg-transparent duration-200 py-1 px-3 group ${
+                  className={`rounded-full gap-1 hover:bg-transparent  flex items-center justify-center py-1  text-sm  group ${
                     activeNavItem === item.name
                       ? "bg-transparent outline-white transition-all duration-200 outline-1 outline"
                       : ""
