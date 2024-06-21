@@ -76,7 +76,7 @@ const Player = ({ url, title, description }) => {
               initial={{ y: 20, opacity: 0 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1 }}
-              className="p-4 absolute bottom-16 space-y-4 bg-black/50 w-max outline outline-white flex flex-col text-white rounded-box max-w-xs text-xs"
+              className="p-4 absolute text-justify bottom-16 space-y-4 bg-black/50 w-max outline outline-white flex flex-col text-white rounded-box max-w-xs text-xs"
             >
               {description}
             </motion.div>
