@@ -1,11 +1,12 @@
-import React, {  useState } from "react";
+import React, { useState } from "react";
+import { Link, useLocation } from "react-router-dom";
 import logo from "../assets/favicon.png";
 import { MdFiberManualRecord, MdMenu } from "react-icons/md";
 import Drawer from "./drawer";
 
 export default function Nav() {
-  const [activeNavItem, setActiveNavItem] = useState("Work");
   const [isDrawerOpen, setDrawerOpen] = useState(false);
+  const location = useLocation(); // Get the current location
 
   const navItems = [
     {
@@ -25,15 +26,16 @@ export default function Nav() {
     }
   ];
 
+  // Determine the active nav item based on the current path
+  const activeNavItem = navItems.find(item => item.link === location.pathname)?.name;
+
   const handleNavItemClick = (name) => {
     if (name === "Connect") {
       setDrawerOpen(true);
     } else {
-      setActiveNavItem(name);
       setDrawerOpen(false); // Close the drawer if any other nav item is clicked
     }
   };
-  
 
   return (
     <>
@@ -49,39 +51,39 @@ export default function Nav() {
             >
               {navItems.map((item) => (
                 <li key={item.id}>
-                  <a
+                  <Link
                     className={activeNavItem === item.name ? "active" : ""}
-                    href={item.link}
+                    to={item.link}
                     onClick={() => handleNavItemClick(item.name)}
                   >
                     {item.name}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
           </div>
-          <a href="/" className=" ">
+          <Link to="/" className="">
             <img
               src={logo}
-              priority
-              alt=""
+              priority="true"
+              alt="Logo"
               width={300}
               height={300}
               className="w-[6rem] md:w-[12rem]"
             />
-          </a>
+          </Link>
         </div>
         <div className="navbar-end hidden justify-around lg:flex">
           <ul className="menu uppercase font-extralight tracking-widest menu-horizontal px-1">
             {navItems.map((item) => (
               <li key={item.id} className="py-0">
-                <a
+                <Link
                   className={`rounded-full hover:bg-transparent py-1 px-3 group ${
                     activeNavItem === item.name
                       ? "bg-transparent outline-white outline-1 outline"
                       : ""
                   }`}
-                  href={item.link}
+                  to={item.link}
                   onClick={() => handleNavItemClick(item.name)}
                 >
                   <MdFiberManualRecord
@@ -92,7 +94,7 @@ export default function Nav() {
                     }
                   />
                   {item.name}
-                </a>
+                </Link>
               </li>
             ))}
           </ul>
@@ -107,4 +109,3 @@ export default function Nav() {
     </>
   );
 }
-
