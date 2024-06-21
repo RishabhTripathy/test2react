@@ -3,6 +3,9 @@ import "./App.css";
 import Nav from "./components/nav";
 import FullPage from "./components/fullpage";
 import MobileView from "./components/mobile";
+import { BrowserRouter as Router, Route,  Routes } from "react-router-dom"; // Import Router, Route, Switch
+import Brands from "./brands"; // Import your Brands component
+
 
 function App() {
   const [isMobile, setIsMobile] = useState(false);
@@ -68,6 +71,7 @@ function App() {
   ];
 
   return (
+    <Router>
     <div className="App bg-white overflow-hidden">
       <header>
         <link
@@ -79,9 +83,14 @@ function App() {
         />
       </header>
       <Nav />
-      {isMobile ? <MobileView projects={projects} /> : <FullPage projects={projects} />}
+      <Routes>
+        <Route path="/" element={isMobile ? <MobileView projects={projects} /> : <FullPage projects={projects} />} />
+        <Route path="/brands" element={<Brands />} />
+        {/* Add other routes here as needed */}
+      </Routes>
     </div>
-  );
+  </Router>
+);
 }
 
 export default App;
