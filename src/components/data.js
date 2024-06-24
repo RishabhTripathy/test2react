@@ -1,8 +1,5 @@
-import bold from "../assets/bold.mp4";
 import lbold from "../assets/bold.png";
-import sub from "../assets/Subway.mp4";
 import lsub from "../assets/sub.png";
-import shark from "../assets/SHARK.mp4";
 import lshark from "../assets/shark.png";
 const projects = [
   {
